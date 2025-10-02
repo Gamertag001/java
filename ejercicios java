@@ -1,0 +1,100 @@
+// 1. Tortilla de patatas
+function tortilla(comensales) {
+  let patatas = 300 * comensales; // gramos
+  let kilos = patatas / 1000;
+  let huevos = kilos * 4;
+  let cebolla = kilos * 250;
+  console.log(`Patatas: ${patatas}g, Huevos: ${huevos}, Cebolla: ${cebolla}g`);
+}
+tortilla(4);
+
+// 2. Intercambiar valores
+let a = 5;
+let b = 10;
+let temp = a;
+a = b;
+b = temp;
+console.log(a, b);
+
+// 3. Edad de perro
+function edadPerro(edad) {
+  console.log("La edad del perro en años humanos es " + (edad * 7));
+}
+edadPerro(5);
+
+// 4. Triángulo de asteriscos
+for (let i = 1; i <= 9; i++) {
+  console.log("*".repeat(i));
+}
+
+// 5. Calcular impuestos
+function calcularImpuestos(edad, ingresos) {
+  if (edad >= 18 && ingresos >= 1000) {
+    return ingresos * 0.4;
+  } else {
+    return 0;
+  }
+}
+console.log(calcularImpuestos(20, 1500));
+
+// 6. Likes
+function likes(num) {
+  if (num < 1000) return num.toString();
+  if (num < 1000000) return Math.floor(num / 1000) + "K";
+  return Math.floor(num / 1000000) + "M";
+}
+console.log(likes(1400));
+
+// 7. FizzBuzz
+function fizzBuzz(num) {
+  if (num % 3 === 0 && num % 5 === 0) return "fizzbuzz";
+  if (num % 3 === 0) return "fizz";
+  if (num % 5 === 0) return "buzz";
+  return num;
+}
+console.log(fizzBuzz(15));
+
+// 8. Número de "a"
+function numeroDeAes(str) {
+  let contador = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i].toLowerCase() === "a") contador++;
+  }
+  return contador;
+}
+console.log(numeroDeAes("banana"));
+
+// 9. Remover ceros
+function removerCeros(arr) {
+  let resultado = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) resultado.push(arr[i]);
+  }
+  return resultado;
+}
+console.log(removerCeros([1,0,2,0,3]));
+
+// 10. Transcribir ADN a ARN
+function transcribir(adn) {
+  let arn = "";
+  for (let i = 0; i < adn.length; i++) {
+    if (adn[i] === "G") arn += "C";
+    else if (adn[i] === "C") arn += "G";
+    else if (adn[i] === "T") arn += "A";
+    else if (adn[i] === "A") arn += "U";
+  }
+  return arn;
+}
+console.log(transcribir("GCTA"));
+
+// 11. Password
+function password(str) {
+  let nueva = str.toLowerCase();
+  nueva = nueva.replace(/ /g, "");
+  nueva = nueva.replace(/a/g, "4");
+  nueva = nueva.replace(/e/g, "3");
+  nueva = nueva.replace(/i/g, "1");
+  nueva = nueva.replace(/o/g, "0");
+  return nueva;
+}
+console.log(password("yoooo what´s up my broski"));
