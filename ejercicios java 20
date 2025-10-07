@@ -1,0 +1,160 @@
+// 1. Muestra un mensaje de 'Bienvenido!' después de 3 segundos
+setTimeout(() => {
+  console.log('Bienvenido!');
+}, 3000);
+
+// 2. Contador regresivo de 5 a 0 con setTimeout
+for (let i = 5; i >= 0; i--) {
+  setTimeout(() => {
+    console.log(i);
+  }, (5 - i) * 1000);
+}
+
+// 3. Muestra tres mensajes diferentes con distintos tiempos
+setTimeout(() => console.log('Hola'), 1000);
+setTimeout(() => console.log('¿Cómo estás?'), 2000);
+setTimeout(() => console.log('Adiós'), 3000);
+
+// 4. Función temporizador(mensaje, tiempo)
+function temporizador(mensaje, tiempo) {
+  setTimeout(() => {
+    console.log(mensaje);
+  }, tiempo);
+}
+temporizador('Esto aparece después de 2 segundos', 2000);
+
+// 5. Simula la carga de datos
+console.log('Cargando...');
+setTimeout(() => {
+  console.log('Datos cargados');
+}, 3000);
+
+// 6. Ejecución en cadena con setTimeout
+setTimeout(() => {
+  console.log('Paso 1');
+  setTimeout(() => {
+    console.log('Paso 2');
+    setTimeout(() => {
+      console.log('Paso 3');
+    }, 1000);
+  }, 1000);
+}, 1000);
+
+// 7. Reloj digital con setInterval
+setInterval(() => {
+  let hora = new Date().toLocaleTimeString();
+  console.log(hora);
+}, 1000);
+
+// 8. Reloj digital con setTimeout (recursivo)
+function reloj() {
+  let hora = new Date().toLocaleTimeString();
+  console.log(hora);
+  setTimeout(reloj, 1000);
+}
+reloj();
+
+// 9. Cronómetro que inicia desde 0
+let tiempo = 0;
+setInterval(() => {
+  console.log(tiempo++);
+}, 1000);
+
+// 10. Mensaje que parpadea (ON / OFF)
+let encendido = true;
+setInterval(() => {
+  console.log(encendido ? 'ON' : 'OFF');
+  encendido = !encendido;
+}, 500);
+
+// 11. Tabla de multiplicar del 5
+let num = 1;
+let tabla = setInterval(() => {
+  console.log(`5 x ${num} = ${5 * num}`);
+  num++;
+  if (num > 10) clearInterval(tabla);
+}, 2000);
+
+// 12. Animación de texto que muestra "JAVASCRIPT"
+let palabra = 'JAVASCRIPT';
+let index = 0;
+let animacion = setInterval(() => {
+  console.log(palabra[index]);
+  index++;
+  if (index === palabra.length) clearInterval(animacion);
+}, 700);
+
+// 13. Mostrar chistes cada 3 segundos
+let chistes = [
+  '¿Qué le dice un 0 a un 8? Bonito cinturón.',
+  '¿Por qué la computadora fue al médico? Porque tenía un virus.',
+  '¿Qué hace una abeja en el gimnasio? Zum-ba.',
+  '¿Qué le dice un techo a otro? Techo de menos.',
+  'Error 404: chiste no encontrado.'
+];
+let pos = 0;
+setInterval(() => {
+  console.log(chistes[pos]);
+  pos = (pos + 1) % chistes.length;
+}, 3000);
+
+// 14. Simula un semáforo
+function semaforo() {
+  console.log('Rojo');
+  setTimeout(() => {
+    console.log('Verde');
+    setTimeout(() => {
+      console.log('Amarillo');
+      setTimeout(semaforo, 1000);
+    }, 2000);
+  }, 3000);
+}
+semaforo();
+
+// 15. Detener un setInterval después de 10 repeticiones
+let conteo = 0;
+let intervalo = setInterval(() => {
+  console.log('Repetición:', conteo + 1);
+  conteo++;
+  if (conteo === 10) clearInterval(intervalo);
+}, 1000);
+
+// 16. Cargador de progreso
+let progreso = 10;
+let carga = setInterval(() => {
+  console.log(progreso + '%');
+  progreso += 10;
+  if (progreso > 100) clearInterval(carga);
+}, 500);
+
+// 17. Recordatorio cada 10 segundos, solo 3 veces
+let veces = 0;
+function recordatorio() {
+  if (veces < 3) {
+    console.log('Recordatorio');
+    veces++;
+    setTimeout(recordatorio, 10000);
+  }
+}
+recordatorio();
+
+// 18. Números pares del 2 al 20 con retardo de 1 segundo
+for (let i = 2; i <= 20; i += 2) {
+  setTimeout(() => {
+    console.log(i);
+  }, (i / 2) * 1000);
+}
+
+// 19. Mostrar fecha completa cada 5 segundos
+setInterval(() => {
+  let fecha = new Date();
+  console.log(fecha.toLocaleString());
+}, 5000);
+
+// 20. Inicia cronómetro después de 5 segundos
+setTimeout(() => {
+  let tiempo = 0;
+  setInterval(() => {
+    console.log('Cronómetro:', tiempo++);
+  }, 1000);
+}, 5000);
